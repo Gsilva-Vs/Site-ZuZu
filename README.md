@@ -15,6 +15,14 @@
 
 ---
 
+##  Preview
+
+<p align="center">
+  <img src="public/preview.png" alt="Preview do Site-ZuZu" width="700" />
+</p>
+
+---
+
 ##  Por que esse projeto existe?
 
 Esse repositório nasceu como um laboratório pessoal para praticar:
