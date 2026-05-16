@@ -85,3 +85,12 @@ cp .env.example .env   # Depois edite o .env com seus dados do Supabase
 
 # 5. Rode o servidor de desenvolvimento
 npm run dev
+
+src/
+├── components/       # Componentes reutilizáveis (cards, seções, botões)
+├── App.tsx           # Componente raiz
+├── main.tsx          # Ponto de entrada
+├── styles/           # Arquivos CSS
+└── types/            # Definições de tipos TypeScript
+public/               # Assets estáticos (imagens, ícones)
+supabase/             # Configurações do cliente Supabase (se existir)
