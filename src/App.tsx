@@ -27,7 +27,7 @@ function App() {
             <img
               src="/logo-icon.svg"
               alt=""
-              className="h-11 w-11 rounded-lg object-contain"
+              className="h-24 w-24 rounded-lg object-contain"
             />
             <span>
               <span className="block font-display text-2xl font-black leading-none tracking-tight text-stone-950">
