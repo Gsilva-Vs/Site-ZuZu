@@ -1,7 +1,7 @@
 import { ArrowRight, CheckCircle2, Leaf, Sparkles } from 'lucide-react';
 
 const metrics = [
-  { value: '24', label: 'receitas base' },
+  { value: '6', label: 'receitas base' },
   { value: '0', label: 'açúcar adicionado' },
   { value: '15 min', label: 'preparos rápidos' },
 ];

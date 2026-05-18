@@ -26,7 +26,7 @@ function Footer() {
               </div>
             </div>
             <p className="mt-5 max-w-xl leading-8 text-stone-650">
-              Receitas e conteúdo sobre alimentação sem açúcar adicionado, criados para uma experiência limpa, moderna e fácil de usar.
+              Receitas e conteúdo sobre alimentação sem açúcar adicionado.
             </p>
           </div>
 
@@ -45,15 +45,17 @@ function Footer() {
             <h3 className="font-black text-stone-950">Contato</h3>
             <div className="mt-4 flex gap-2">
               {[
-                { label: 'Instagram', icon: Instagram },
-                { label: 'E-mail', icon: Mail },
+                { label: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/projetozuzuzero06/' },
+                { label: 'E-mail', icon: Mail, href: '#dicas' },
               ].map((item) => {
                 const Icon = item.icon;
 
                 return (
                   <a
                     key={item.label}
-                    href="#dicas"
+                    href={item.href}
+                    target={item.label === 'Instagram' ? '_blank' : undefined}
+                    rel={item.label === 'Instagram' ? 'noreferrer noopener' : undefined}
                     aria-label={item.label}
                     className="grid h-11 w-11 place-items-center rounded-lg border border-white/70 bg-white/70 text-stone-700 transition hover:bg-zuzu-yellow hover:text-stone-950"
                   >
@@ -69,7 +71,7 @@ function Footer() {
         </div>
 
         <div className="mt-8 border-t border-stone-200/70 pt-5 text-sm font-semibold text-stone-500">
-          © 2026 Zuzu Zero. Projeto visual e funcional para comidas zero açúcar.
+          © 2026 Zuzu Zero. Todos os direitos reservados.
         </div>
       </div>
     </footer>
