@@ -68,7 +68,7 @@ A ideia foi transformar um design conceito de restaurante em algo funcional, com
 - [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
 - Uma conta gratuita no [Supabase](https://supabase.com/) (para obter as credenciais)
 
-### Passo a passo
+### Passo a passo:
 
 ```bash
 # 1. Clone o projeto
