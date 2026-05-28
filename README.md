@@ -6,7 +6,6 @@
   <img src="https://img.shields.io/badge/React-18-blue?logo=react&style=flat-square" alt="react" />
   <img src="https://img.shields.io/badge/TypeScript-5.0-blue?logo=typescript&style=flat-square" alt="typescript" />
   <img src="https://img.shields.io/badge/Vite-5.0-purple?logo=vite&style=flat-square" alt="vite" />
-  <img src="https://img.shields.io/badge/Supabase-integrado-3FCF8E?logo=supabase&style=flat-square" alt="supabase" />
 </p>
 
 <p align="center">
