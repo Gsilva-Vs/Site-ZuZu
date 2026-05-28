@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  Um site de cardápio digital e identidade visual para o restaurante fictício <strong>ZuZu</strong>, construído para explorar React com TypeScript e integração com Supabase.
+  Um site de cardápio digital e identidade visual para o restaurante fictício <strong>ZuZu</strong>, construído para explorar React com TypeScript.
 </p>
 
 ---
