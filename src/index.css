@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@700;800;900&family=Manrope:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    font-family: 'Manrope', system-ui, sans-serif;
+    background: #fffaf0;
+    color: #211d18;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input {
+    font: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid #56704b;
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Fraunces', Georgia, serif;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    scale: 0.97;
+    translate: 0 12px;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+@keyframes heart-pop {
+  0% {
+    scale: 1;
+  }
+  40% {
+    scale: 1.35;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+/* Elementos só ficam ocultos quando o JS confirma que pode revelá-los. */
+.reveal-ready [data-reveal]:not(.is-visible) {
+  opacity: 0;
+  translate: 0 18px;
+}
+
+.reveal-ready [data-reveal].is-visible {
+  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms) backwards;
+}
+
+@layer utilities {
+  .animate-rise {
+    animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms) backwards;
+  }
+  .animate-modal {
+    animation: pop-in 0.3s ease-out both;
+  }
+  .animate-menu {
+    animation: pop-in 0.25s ease-out both;
+  }
+  .animate-overlay {
+    animation: fade-in 0.25s ease-out both;
+  }
+  .animate-float {
+    animation: float-soft 6s ease-in-out infinite;
+  }
+  .animate-heart {
+    animation: heart-pop 0.4s ease-out;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
