@@ -17,7 +17,7 @@
 ##  Preview
 
 <p align="center">
-  <img src="public/preview.png" alt="Preview do Site-ZuZu" width="700" />
+  <img src="public/preview1.png" alt="Preview do Site-ZuZu" width="700" />
 </p>
 
 ---
