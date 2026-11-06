@@ -6,6 +6,7 @@ const links = [
   { label: 'Conceitos', href: '#conceitos' },
   { label: 'Guia Zero', href: '#guia' },
   { label: 'Dicas', href: '#dicas' },
+  { label: 'Desafio Zuzu', href: '#desafio' },
 ];
 
 function Footer() {
