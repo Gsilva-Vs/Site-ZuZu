@@ -1,7 +1,7 @@
 <h1 align="center"> Site-ZuZu</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/status-em%20desenvolvimento-yellow?style=flat-square" alt="status" />
+  <img src="https://img.shields.io/badge/status-desenvolvido-brightgreen?style=flat-square" alt="status" />
   <img src="https://img.shields.io/github/license/Gsilva-Vs/Site-ZuZu?style=flat-square" alt="license" />
   <img src="https://img.shields.io/badge/React-18-blue?logo=react&style=flat-square" alt="react" />
   <img src="https://img.shields.io/badge/TypeScript-5.0-blue?logo=typescript&style=flat-square" alt="typescript" />
