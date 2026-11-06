@@ -1,4 +1,4 @@
-import { Menu, X } from 'lucide-react';
+import { Menu, Moon, Sun, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import Concepts from './components/Concepts';
 import Footer from './components/Footer';
@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import Recipes from './components/Recipes';
 import ZeroGuide from './components/ZeroGuide';
 import { useScrollReveal } from './useReveal';
+import { useTheme } from './useTheme';
 
 const navLinks = [
   { label: 'Início', href: '#inicio' },
@@ -21,6 +22,8 @@ function App() {
   const [activeId, setActiveId] = useState('inicio');
 
   useScrollReveal();
+  const { theme, toggleTheme } = useTheme();
+  const isDark = theme === 'dark';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -47,15 +50,15 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen overflow-hidden bg-zuzu-cream text-zuzu-ink">
-      <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_15%_10%,rgba(253,224,71,0.38),transparent_28%),radial-gradient(circle_at_85%_18%,rgba(187,247,208,0.28),transparent_30%),linear-gradient(180deg,#fffdf4_0%,#fff8db_42%,#fffaf0_100%)]" />
+    <div className="min-h-screen overflow-hidden text-ink">
+      <div className="page-bg pointer-events-none fixed inset-0 -z-10" />
 
       <header
         className={`fixed left-0 right-0 top-0 z-50 px-3 transition-[padding] duration-300 sm:px-5 ${scrolled ? 'pt-2' : 'pt-3'}`}
       >
         <nav
-          className={`mx-auto flex h-16 max-w-7xl items-center justify-between rounded-lg border border-white/70 px-4 backdrop-blur-2xl transition-all duration-300 sm:px-6 ${
-            scrolled ? 'bg-white/90 shadow-[0_18px_50px_rgba(90,73,34,0.2)]' : 'bg-white/75 shadow-glass'
+          className={`mx-auto flex h-16 max-w-7xl items-center justify-between rounded-lg border border-line/70 px-4 backdrop-blur-2xl transition-all duration-300 sm:px-6 ${
+            scrolled ? 'bg-surface/90 shadow-nav' : 'bg-surface/75 shadow-glass'
           }`}
         >
           <a href="#inicio" className="flex items-center gap-3" aria-label="Ir para o início">
@@ -65,7 +68,7 @@ function App() {
               className="h-24 w-24 rounded-lg object-contain"
             />
             <span>
-              <span className="block font-display text-2xl font-black leading-none tracking-tight text-stone-950">
+              <span className="block font-display text-2xl font-black leading-none tracking-tight text-ink">
                 Zuzu Zero
               </span>
               <span className="block text-[0.65rem] font-bold uppercase tracking-[0.26em] text-zuzu-olive">
@@ -82,8 +85,8 @@ function App() {
                 aria-current={activeId === link.href.slice(1) ? 'true' : undefined}
                 className={`rounded-lg px-4 py-2 text-sm font-bold transition duration-300 ${
                   activeId === link.href.slice(1)
-                    ? 'bg-zuzu-yellow/55 text-stone-950'
-                    : 'text-stone-700 hover:bg-zuzu-yellow/35 hover:text-stone-950'
+                    ? 'bg-tint/55 text-ink'
+                    : 'text-ink-soft hover:bg-tint/35 hover:text-ink'
                 }`}
               >
                 {link.label}
@@ -91,31 +94,52 @@ function App() {
             ))}
           </div>
 
-          <a
-            href="#receitas"
-            className="hidden rounded-lg bg-stone-950 px-5 py-3 text-sm font-extrabold text-white shadow-soft transition duration-300 hover:-translate-y-0.5 hover:bg-zuzu-olive active:translate-y-0 active:scale-[0.97] md:inline-flex"
-          >
-            Explorar receitas
-          </a>
-
-          <button
-            type="button"
-            className="grid h-11 w-11 place-items-center rounded-lg border border-stone-200 bg-white/70 text-stone-900 transition duration-200 active:scale-95 md:hidden"
-            onClick={() => setMenuOpen((open) => !open)}
-            aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
-            aria-expanded={menuOpen}
-          >
-            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              className="grid h-11 w-11 place-items-center rounded-lg border border-line bg-surface/70 text-ink-soft transition duration-300 hover:-translate-y-0.5 hover:bg-tint/35 hover:text-ink active:scale-95"
+              onClick={toggleTheme}
+              aria-label={isDark ? 'Ativar modo claro' : 'Ativar modo escuro'}
+              title={isDark ? 'Modo claro' : 'Modo escuro'}
+            >
+              <span className="relative block h-5 w-5">
+                <Sun
+                  className={`absolute inset-0 h-5 w-5 transition duration-500 ${
+                    isDark ? 'rotate-90 scale-0 opacity-0' : 'rotate-0 scale-100 opacity-100'
+                  }`}
+                />
+                <Moon
+                  className={`absolute inset-0 h-5 w-5 transition duration-500 ${
+                    isDark ? 'rotate-0 scale-100 opacity-100' : '-rotate-90 scale-0 opacity-0'
+                  }`}
+                />
+              </span>
+            </button>
+            <a
+              href="#receitas"
+              className="hidden rounded-lg bg-btn px-5 py-3 text-sm font-extrabold text-btn-fg shadow-soft transition duration-300 hover:-translate-y-0.5 hover:bg-btn-hover active:translate-y-0 active:scale-[0.97] md:inline-flex"
+            >
+              Explorar receitas
+            </a>
+            <button
+              type="button"
+              className="grid h-11 w-11 place-items-center rounded-lg border border-line bg-surface/70 text-ink transition duration-200 active:scale-95 md:hidden"
+              onClick={() => setMenuOpen((open) => !open)}
+              aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+              aria-expanded={menuOpen}
+            >
+              {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </nav>
 
         {menuOpen && (
-          <div className="animate-menu mx-auto mt-2 max-w-7xl rounded-lg border border-white/70 bg-white/90 p-3 shadow-glass backdrop-blur-2xl md:hidden">
+          <div className="animate-menu mx-auto mt-2 max-w-7xl rounded-lg border border-line/70 bg-raised p-3 shadow-glass md:hidden">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="block rounded-lg px-4 py-3 font-bold text-stone-700 transition duration-200 hover:bg-zuzu-yellow/35 hover:text-stone-950"
+                className="block rounded-lg px-4 py-3 font-bold text-ink-soft transition duration-200 hover:bg-tint/35 hover:text-ink"
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}

@@ -234,17 +234,17 @@ function Recipes() {
         <div data-reveal className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-2xl">
             <p className="text-sm font-black uppercase tracking-[0.22em] text-zuzu-olive">Receitas testáveis</p>
-            <h2 className="mt-3 font-display text-4xl font-black tracking-tight text-stone-950 sm:text-5xl">
+            <h2 className="mt-3 font-display text-4xl font-black tracking-tight text-ink sm:text-5xl">
               Zero açúcar, zero cara de dieta sem graça.
             </h2>
-            <p className="mt-4 text-lg leading-8 text-stone-650">
+            <p className="mt-4 text-lg leading-8 text-muted">
               Selecione uma categoria e abra o preparo completo. As receitas usam frutas, especiarias, gorduras boas e fibras para construir sabor.
             </p>
           </div>
 
-          <div className="flex items-center gap-3 rounded-lg border border-white/70 bg-white/60 px-4 py-3 shadow-soft backdrop-blur-xl">
+          <div className="flex items-center gap-3 rounded-lg border border-line/70 bg-surface/60 px-4 py-3 shadow-soft backdrop-blur-xl">
             <Search className="h-5 w-5 text-zuzu-olive" />
-            <span className="text-sm font-bold text-stone-600">{filteredRecipes.length} receitas encontradas</span>
+            <span className="text-sm font-bold text-muted">{filteredRecipes.length} receitas encontradas</span>
           </div>
         </div>
 
@@ -255,8 +255,8 @@ function Recipes() {
               type="button"
               className={`shrink-0 rounded-lg px-4 py-2 text-sm font-extrabold transition duration-200 active:scale-95 ${
                 activeCategory === category
-                  ? 'bg-stone-950 text-white shadow-soft'
-                  : 'border border-white/70 bg-white/65 text-stone-700 hover:bg-zuzu-yellow/45'
+                  ? 'bg-btn text-btn-fg shadow-soft'
+                  : 'border border-line/70 bg-surface/65 text-ink-soft hover:bg-tint/45'
               }`}
               onClick={() => setActiveCategory(category)}
             >
@@ -274,7 +274,7 @@ function Recipes() {
                 key={recipe.id}
                 data-reveal
                 style={revealDelay(index)}
-                className="group overflow-hidden rounded-lg border border-white/70 bg-white/60 shadow-glass backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-zuzu-gold/60 hover:bg-white/75 hover:shadow-[0_30px_80px_rgba(90,73,34,0.22)]"
+                className="group overflow-hidden rounded-lg border border-line/70 bg-surface/60 shadow-glass backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-accent-strong/60 hover:bg-surface/75 hover:shadow-lift"
               >
                 <div className="relative h-64 overflow-hidden">
                   <img
@@ -282,24 +282,24 @@ function Recipes() {
                     alt={recipe.title}
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute left-4 top-4 rounded-lg bg-white/80 px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-zuzu-olive backdrop-blur-xl">
+                  <div className="absolute left-4 top-4 rounded-lg bg-surface/80 px-3 py-1 text-xs font-black uppercase tracking-[0.14em] text-zuzu-olive backdrop-blur-xl">
                     {recipe.category}
                   </div>
                   <button
                     type="button"
-                    className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-lg border border-white/70 bg-white/80 text-stone-700 backdrop-blur-xl transition duration-200 hover:scale-105 hover:bg-white active:scale-90"
+                    className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-lg border border-line/70 bg-surface/80 text-ink-soft backdrop-blur-xl transition duration-200 hover:scale-105 hover:bg-surface active:scale-90"
                     onClick={() => toggleLike(recipe.id)}
                     aria-label={liked ? 'Remover dos favoritos' : 'Salvar nos favoritos'}
                   >
-                    <Heart className={`h-5 w-5 ${liked ? 'animate-heart fill-rose-500 text-rose-500' : ''}`} />
+                    <Heart className={`h-5 w-5 ${liked ? 'animate-heart fill-zuzu-olive text-zuzu-olive' : ''}`} />
                   </button>
                 </div>
 
                 <div className="p-5">
-                  <h3 className="text-2xl font-black tracking-tight text-stone-950">{recipe.title}</h3>
-                  <p className="mt-3 min-h-16 text-sm leading-6 text-stone-600">{recipe.description}</p>
+                  <h3 className="text-2xl font-black tracking-tight text-ink">{recipe.title}</h3>
+                  <p className="mt-3 min-h-16 text-sm leading-6 text-muted">{recipe.description}</p>
 
-                  <div className="mt-5 flex flex-wrap gap-3 text-sm font-bold text-stone-500">
+                  <div className="mt-5 flex flex-wrap gap-3 text-sm font-bold text-muted">
                     <span className="inline-flex items-center gap-1.5">
                       <Clock className="h-4 w-4 text-zuzu-olive" />
                       {recipe.time}
@@ -312,7 +312,7 @@ function Recipes() {
 
                   <button
                     type="button"
-                    className="mt-6 w-full rounded-lg bg-zuzu-yellow px-5 py-3 font-black text-stone-950 transition duration-300 hover:-translate-y-0.5 hover:bg-zuzu-gold hover:shadow-soft active:translate-y-0 active:scale-[0.98]"
+                    className="mt-6 w-full rounded-lg bg-accent px-5 py-3 font-black text-accent-fg transition duration-300 hover:-translate-y-0.5 hover:bg-accent-strong hover:shadow-soft active:translate-y-0 active:scale-[0.98]"
                     onClick={() => setSelectedRecipe(recipe)}
                   >
                     Ver preparo
@@ -326,15 +326,15 @@ function Recipes() {
 
       {selectedRecipe && (
         <div className="animate-overlay fixed inset-0 z-[80] grid place-items-center bg-stone-950/45 px-4 py-8 backdrop-blur-sm">
-          <div className="animate-modal max-h-[88vh] w-full max-w-3xl overflow-y-auto rounded-lg border border-white/70 bg-zuzu-cream p-5 shadow-glass">
+          <div className="animate-modal max-h-[88vh] w-full max-w-3xl overflow-y-auto rounded-lg border border-line/70 bg-raised p-5 shadow-glass">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-sm font-black uppercase tracking-[0.22em] text-zuzu-olive">{selectedRecipe.category}</p>
-                <h3 className="mt-2 font-display text-3xl font-black text-stone-950">{selectedRecipe.title}</h3>
+                <h3 className="mt-2 font-display text-3xl font-black text-ink">{selectedRecipe.title}</h3>
               </div>
               <button
                 type="button"
-                className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-stone-200 bg-white text-stone-800 transition duration-200 hover:rotate-90 hover:bg-stone-100 active:scale-90"
+                className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-line bg-tile text-ink transition duration-200 hover:rotate-90 hover:bg-tint/40 active:scale-90"
                 onClick={() => setSelectedRecipe(null)}
                 aria-label="Fechar receita"
               >
@@ -349,10 +349,10 @@ function Recipes() {
                 className="h-72 w-full rounded-lg object-cover"
               />
               <div>
-                <h4 className="font-black text-stone-950">Ingredientes</h4>
-                <ul className="mt-3 space-y-2 text-stone-650">
+                <h4 className="font-black text-ink">Ingredientes</h4>
+                <ul className="mt-3 space-y-2 text-muted">
                   {selectedRecipe.ingredients.map((ingredient, index) => (
-                    <li key={ingredient} style={revealDelay(index)} className="animate-rise rounded-lg bg-white/70 px-3 py-2">
+                    <li key={ingredient} style={revealDelay(index)} className="animate-rise rounded-lg bg-tile/70 px-3 py-2">
                       {ingredient}
                     </li>
                   ))}
@@ -361,11 +361,11 @@ function Recipes() {
             </div>
 
             <div className="mt-6">
-              <h4 className="font-black text-stone-950">Modo de preparo</h4>
-              <ol className="mt-3 space-y-3 text-stone-650">
+              <h4 className="font-black text-ink">Modo de preparo</h4>
+              <ol className="mt-3 space-y-3 text-muted">
                 {selectedRecipe.steps.map((step, index) => (
-                  <li key={step} style={revealDelay(index)} className="animate-rise flex gap-3 rounded-lg bg-white/70 p-3">
-                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-zuzu-yellow text-sm font-black text-stone-950">
+                  <li key={step} style={revealDelay(index)} className="animate-rise flex gap-3 rounded-lg bg-tile/70 p-3">
+                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-accent text-sm font-black text-accent-fg">
                       {index + 1}
                     </span>
                     <span>{step}</span>

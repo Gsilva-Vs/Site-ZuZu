@@ -4,6 +4,60 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Tema claro (rosa pastel) e escuro (grafite com detalhes rosados).
+   Valores em "R G B" para funcionar com os modificadores de opacidade do Tailwind. */
+:root {
+  --base: 255 245 246; /* fundo da página */
+  --surface: 255 230 234; /* cards (usados com ~60% de opacidade) */
+  --tile: 255 251 252; /* blocos internos dos cards */
+  --raised: 255 245 246; /* modal */
+  --line: 242 198 207; /* bordas e divisórias */
+  --ink: 33 23 25; /* texto principal */
+  --ink-soft: 82 68 72;
+  --muted: 112 98 102; /* texto secundário */
+  --olive: 160 86 106; /* rosa queimado: ícones e detalhes em texto */
+  --accent: 242 198 207;
+  --accent-strong: 222 148 166;
+  --accent-fg: 33 23 25;
+  --chip: 242 198 207;
+  --tint: 242 198 207;
+  --btn: 33 23 25;
+  --btn-fg: 255 245 246;
+  --btn-hover: 160 86 106;
+  --panel: 33 23 25;
+  --shadow: 150 80 100;
+  --sh-glass: 0.14;
+  --sh-soft: 0.12;
+  --sh-lift: 0.2;
+  --sh-nav: 0.2;
+}
+
+.dark {
+  --base: 25 21 24;
+  --surface: 44 35 41;
+  --tile: 28 23 27;
+  --raised: 37 30 35;
+  --line: 74 58 66;
+  --ink: 248 239 241;
+  --ink-soft: 226 214 219;
+  --muted: 185 169 174;
+  --olive: 201 139 155;
+  --accent: 232 182 194;
+  --accent-strong: 242 198 207;
+  --accent-fg: 25 21 24;
+  --chip: 74 52 60;
+  --tint: 201 139 155;
+  --btn: 232 182 194;
+  --btn-fg: 25 21 24;
+  --btn-hover: 242 198 207;
+  --panel: 52 37 45;
+  --shadow: 0 0 0;
+  --sh-glass: 0.35;
+  --sh-soft: 0.3;
+  --sh-lift: 0.5;
+  --sh-nav: 0.45;
+}
+
 @layer base {
   :root {
     color-scheme: light;
@@ -11,6 +65,10 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  .dark {
+    color-scheme: dark;
   }
 
   html {
@@ -22,8 +80,8 @@
     margin: 0;
     min-width: 320px;
     font-family: 'Manrope', system-ui, sans-serif;
-    background: #fffaf0;
-    color: #211d18;
+    background: rgb(var(--base));
+    color: rgb(var(--ink));
   }
 
   img {
@@ -42,7 +100,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid #56704b;
+    outline: 2px solid rgb(var(--olive));
     outline-offset: 3px;
   }
 }
@@ -149,5 +207,53 @@
   *::after {
     animation: none !important;
     transition: none !important;
+  }
+}
+
+/* Fundo da página: duas camadas que se alternam suavemente entre os temas. */
+.page-bg {
+  background:
+    radial-gradient(circle at 15% 10%, rgb(242 198 207 / 0.55), transparent 30%),
+    radial-gradient(circle at 85% 18%, rgb(233 220 245 / 0.45), transparent 32%),
+    linear-gradient(180deg, #fff8f9 0%, #fff5f6 45%, #fff3f5 100%);
+}
+
+.page-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background:
+    radial-gradient(circle at 15% 10%, rgb(232 182 194 / 0.1), transparent 30%),
+    radial-gradient(circle at 85% 18%, rgb(150 120 190 / 0.1), transparent 32%),
+    linear-gradient(180deg, #1c171b 0%, #191518 45%, #171316 100%);
+}
+
+.dark .page-bg::after {
+  opacity: 1;
+}
+
+/* A logo é um SVG preto: no tema escuro ela é clareada. */
+.dark img[src$='logo-icon.svg'] {
+  filter: invert(1) opacity(0.92);
+}
+
+/* Suaviza a troca de cores só durante a alternância de tema. */
+@media (prefers-reduced-motion: no-preference) {
+  html.theme-transition,
+  html.theme-transition *,
+  html.theme-transition *::before,
+  html.theme-transition *::after {
+    transition:
+      background-color 0.4s ease,
+      color 0.4s ease,
+      border-color 0.4s ease,
+      fill 0.4s ease,
+      stroke 0.4s ease,
+      box-shadow 0.4s ease,
+      filter 0.4s ease,
+      opacity 0.4s ease,
+      transform 0.4s ease !important;
   }
 }

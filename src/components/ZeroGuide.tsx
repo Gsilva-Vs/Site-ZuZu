@@ -42,7 +42,7 @@ function ZeroGuide() {
     <>
       <section id="guia" className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div data-reveal className="overflow-hidden rounded-lg border border-white/70 bg-white/60 shadow-glass backdrop-blur-xl">
+          <div data-reveal className="overflow-hidden rounded-lg border border-line/70 bg-surface/60 shadow-glass backdrop-blur-xl">
             <div className="grid lg:grid-cols-[0.95fr_1.05fr]">
               <div className="relative min-h-[24rem]">
                 <img
@@ -51,12 +51,12 @@ function ZeroGuide() {
                   className="absolute inset-0 h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-stone-950/55 via-transparent to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5 rounded-lg bg-white/80 p-5 shadow-soft backdrop-blur-xl">
+                <div className="absolute bottom-5 left-5 right-5 rounded-lg bg-surface/80 p-5 shadow-soft backdrop-blur-xl">
                   <div className="flex items-center gap-3">
                     <ShoppingBasket className="h-6 w-6 text-zuzu-olive" />
-                    <p className="font-black text-stone-950">Despensa Zero</p>
+                    <p className="font-black text-ink">Despensa Zero</p>
                   </div>
-                  <p className="mt-2 text-sm leading-6 text-stone-650">
+                  <p className="mt-2 text-sm leading-6 text-muted">
                     Tenha bases simples em casa para improvisar sem cair no açúcar escondido.
                   </p>
                 </div>
@@ -64,10 +64,10 @@ function ZeroGuide() {
 
               <div className="p-6 md:p-8">
                 <p className="text-sm font-black uppercase tracking-[0.22em] text-zuzu-olive">Guia Zero</p>
-                <h2 className="mt-3 font-display text-4xl font-black tracking-tight text-stone-950">
+                <h2 className="mt-3 font-display text-4xl font-black tracking-tight text-ink">
                   Uma lista de compras que deixa a semana mais fácil.
                 </h2>
-                <p className="mt-4 text-lg leading-8 text-stone-650">
+                <p className="mt-4 text-lg leading-8 text-muted">
                   A base do estilo Zuzu Zero é comprar melhor antes de cozinhar. Com poucos itens versáteis, você monta café, lanche, sobremesa e refeição principal.
                 </p>
 
@@ -77,7 +77,7 @@ function ZeroGuide() {
                       key={item}
                       data-reveal
                       style={revealDelay(index)}
-                      className="rounded-lg bg-zuzu-yellow/35 p-3 text-sm font-black text-stone-800 transition duration-300 hover:-translate-y-0.5 hover:bg-zuzu-yellow/60"
+                      className="rounded-lg bg-tint/35 p-3 text-sm font-black text-ink transition duration-300 hover:-translate-y-0.5 hover:bg-tint/60"
                     >
                       <BadgeCheck className="mb-2 h-4 w-4 text-zuzu-olive" />
                       {item}
@@ -92,19 +92,19 @@ function ZeroGuide() {
 
       <section id="dicas" className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div data-reveal className="rounded-lg border border-white/70 bg-white/58 p-6 shadow-glass backdrop-blur-xl md:p-8">
+          <div data-reveal className="rounded-lg border border-line/70 bg-surface/58 p-6 shadow-glass backdrop-blur-xl md:p-8">
             <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
               <div className="max-w-3xl">
                 <div className="flex items-center gap-3">
-                  <span className="grid h-12 w-12 place-items-center rounded-lg bg-zuzu-yellow">
+                  <span className="grid h-12 w-12 place-items-center rounded-lg bg-chip">
                     <Info className="h-6 w-6 text-zuzu-olive" />
                   </span>
                   <p className="text-sm font-black uppercase tracking-[0.22em] text-zuzu-olive">Açúcares e adoçantes</p>
                 </div>
-                <h2 className="mt-5 font-display text-4xl font-black tracking-tight text-stone-950">
+                <h2 className="mt-5 font-display text-4xl font-black tracking-tight text-ink">
                   Entenda o doce antes de escolher o que vai para o prato.
                 </h2>
-                <p className="mt-4 text-lg leading-8 text-stone-650">
+                <p className="mt-4 text-lg leading-8 text-muted">
                   Esta seção é explicativa: ela ajuda a diferenciar açúcar natural, açúcar adicionado e adoçantes, sem formulário ou promessa milagrosa.
                 </p>
               </div>
@@ -119,17 +119,17 @@ function ZeroGuide() {
                     key={item.title}
                     data-reveal
                     style={revealDelay(index)}
-                    className="rounded-lg bg-white/70 p-5 transition duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-soft"
+                    className="rounded-lg bg-tile/70 p-5 transition duration-300 hover:-translate-y-1 hover:bg-tile hover:shadow-soft"
                   >
                     <Icon className="h-7 w-7 text-zuzu-olive" />
-                    <h3 className="mt-4 text-xl font-black text-stone-950">{item.title}</h3>
-                    <p className="mt-3 leading-7 text-stone-650">{item.text}</p>
+                    <h3 className="mt-4 text-xl font-black text-ink">{item.title}</h3>
+                    <p className="mt-3 leading-7 text-muted">{item.text}</p>
                   </article>
                 );
               })}
             </div>
 
-            <div data-reveal className="mt-6 rounded-lg bg-stone-950 p-5 text-white md:p-6">
+            <div data-reveal className="mt-6 rounded-lg bg-panel p-5 text-white md:p-6">
               <h3 className="text-2xl font-black">Como identificar açúcar escondido</h3>
               <div className="mt-5 grid gap-3 md:grid-cols-2">
                 {labelTips.map((tip, index) => (
@@ -139,7 +139,7 @@ function ZeroGuide() {
                     style={revealDelay(index)}
                     className="flex gap-3 rounded-lg bg-white/10 p-4 transition duration-300 hover:bg-white/15"
                   >
-                    <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-zuzu-yellow" />
+                    <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
                     <p className="leading-7 text-stone-100">{tip}</p>
                   </div>
                 ))}

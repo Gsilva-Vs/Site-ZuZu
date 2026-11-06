@@ -38,10 +38,10 @@ function Concepts() {
         <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <div data-reveal className="lg:sticky lg:top-28">
             <p className="text-sm font-black uppercase tracking-[0.22em] text-zuzu-olive">Conceitos</p>
-            <h2 className="mt-3 font-display text-4xl font-black tracking-tight text-stone-950 sm:text-5xl">
+            <h2 className="mt-3 font-display text-4xl font-black tracking-tight text-ink sm:text-5xl">
               Uma alimentação zero mais simples de entender.
             </h2>
-            <p className="mt-5 text-lg leading-8 text-stone-650">
+            <p className="mt-5 text-lg leading-8 text-muted">
               O site foi pensado para ficar limpo e direto: primeiro você aprende a lógica, depois escolhe uma receita e monta sua rotina sem excesso de informação.
             </p>
           </div>
@@ -55,26 +55,26 @@ function Concepts() {
                   key={concept.title}
                   data-reveal
                   style={revealDelay(index)}
-                  className="group rounded-lg border border-white/70 bg-white/60 p-6 shadow-glass backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:bg-white/80 hover:shadow-[0_30px_80px_rgba(90,73,34,0.2)]"
+                  className="group rounded-lg border border-line/70 bg-surface/60 p-6 shadow-glass backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:bg-surface/80 hover:shadow-lift"
                 >
-                  <span className="grid h-12 w-12 place-items-center rounded-lg bg-zuzu-yellow/80 transition duration-300 group-hover:-rotate-6 group-hover:scale-110">
+                  <span className="grid h-12 w-12 place-items-center rounded-lg bg-chip transition duration-300 group-hover:-rotate-6 group-hover:scale-110">
                     <Icon className="h-6 w-6 text-zuzu-olive" />
                   </span>
-                  <h3 className="mt-5 text-xl font-black text-stone-950">{concept.title}</h3>
-                  <p className="mt-3 leading-7 text-stone-650">{concept.text}</p>
+                  <h3 className="mt-5 text-xl font-black text-ink">{concept.title}</h3>
+                  <p className="mt-3 leading-7 text-muted">{concept.text}</p>
                 </article>
               );
             })}
           </div>
         </div>
 
-        <div data-reveal className="mt-12 rounded-lg border border-white/70 bg-white/60 p-5 shadow-glass backdrop-blur-xl md:p-8">
+        <div data-reveal className="mt-12 rounded-lg border border-line/70 bg-surface/60 p-5 shadow-glass backdrop-blur-xl md:p-8">
           <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.22em] text-zuzu-olive">Trocas inteligentes</p>
-              <h3 className="mt-2 font-display text-3xl font-black text-stone-950">Pequenas mudanças que limpam o cardápio.</h3>
+              <h3 className="mt-2 font-display text-3xl font-black text-ink">Pequenas mudanças que limpam o cardápio.</h3>
             </div>
-            <a href="#guia" className="rounded-lg bg-stone-950 px-5 py-3 text-center font-black text-white transition duration-300 hover:-translate-y-0.5 hover:bg-zuzu-olive active:translate-y-0 active:scale-[0.97]">
+            <a href="#guia" className="rounded-lg bg-btn px-5 py-3 text-center font-black text-btn-fg transition duration-300 hover:-translate-y-0.5 hover:bg-btn-hover active:translate-y-0 active:scale-[0.97]">
               Montar despensa
             </a>
           </div>
@@ -85,10 +85,10 @@ function Concepts() {
                 key={from}
                 data-reveal
                 style={revealDelay(index)}
-                className="grid gap-2 rounded-lg bg-white/70 p-4 transition duration-300 hover:bg-white sm:grid-cols-[0.8fr_1.2fr] sm:items-center"
+                className="grid gap-2 rounded-lg bg-tile/70 p-4 transition duration-300 hover:bg-tile sm:grid-cols-[0.8fr_1.2fr] sm:items-center"
               >
-                <span className="font-bold text-stone-500 line-through decoration-rose-400 decoration-2">{from}</span>
-                <span className="font-black text-stone-900">{to}</span>
+                <span className="font-bold text-muted line-through decoration-rose-400 decoration-2">{from}</span>
+                <span className="font-black text-ink">{to}</span>
               </div>
             ))}
           </div>
